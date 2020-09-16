@@ -1,0 +1,28 @@
+server:
+  port: 9080
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: 192.168.1.129:9300
+    redis:
+      repositories:
+        enabled: false
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    servlet:
+      content-type: text/html
+    mode: HTML5
+    encoding: UTF-8
+    resources:
+      chain:
+        strategy:
+          content:
+            enabled: true
+            paths: /**
+wangzz:
+  elasticsearch:
+    hostlist: ${eshostlist:192.168.1.129:9200}
+    searchIndex: test
+    searchType: active

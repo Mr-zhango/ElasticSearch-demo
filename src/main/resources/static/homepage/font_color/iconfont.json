@@ -1,0 +1,149 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11523058",
+      "name": "回收箱",
+      "font_class": "icon",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "11523059",
+      "name": "材料追踪",
+      "font_class": "icon1",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "11523060",
+      "name": "构件快查",
+      "font_class": "icon2",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "11523065",
+      "name": "模型提量",
+      "font_class": "icon3",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "11523067",
+      "name": "模型app",
+      "font_class": "icon4",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "11523070",
+      "name": "通讯录",
+      "font_class": "icon5",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "11523071",
+      "name": "统计报告",
+      "font_class": "icon6",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "11523072",
+      "name": "模型管理",
+      "font_class": "icon7",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "11523073",
+      "name": "审批",
+      "font_class": "icon8",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "11523074",
+      "name": "图纸管理",
+      "font_class": "icon9",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "11523075",
+      "name": "提醒",
+      "font_class": "icon10",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "11523076",
+      "name": "消息",
+      "font_class": "icon11",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "11534647",
+      "name": "进度计划",
+      "font_class": "icon12",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "11534648",
+      "name": "实时监控",
+      "font_class": "icon13",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "11535029",
+      "name": "质量问题",
+      "font_class": "zhiliangwenti",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "11535046",
+      "name": "云盘上传",
+      "font_class": "yunpanshangchuan",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "11535047",
+      "name": "甘特图",
+      "font_class": "gantetu",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "11535201",
+      "name": "数据看板",
+      "font_class": "shujukanban",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "11535202",
+      "name": "成员",
+      "font_class": "chengyuan",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "11535203",
+      "name": "私有云",
+      "font_class": "siyouyun",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    }
+  ]
+}

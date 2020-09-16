@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | 404 Error</title>
+
+    <link th:href="@{/ins/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/ins/font-awesome/css/font-awesome.css}" rel="stylesheet">
+
+    <link th:href="@{/ins/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/ins/css/style.css}" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+
+    <div class="middle-box text-center animated fadeInDown">
+        <h1>500</h1>
+        <h3 class="font-bold">网络错误</h3>
+
+        <div class="error-desc">
+            操作失误，也有可能是网络错误 <br/><a href="/homepage" class="btn btn-primary m-t">返回首页</a>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script th:src="@{/ins/js/jquery-2.1.1.js}"></script>
+    <script th:src="@{/ins/js/bootstrap.min.js}"></script>
+
+</body>
+
+</html>

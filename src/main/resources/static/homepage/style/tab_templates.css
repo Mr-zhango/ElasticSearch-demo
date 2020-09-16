@@ -1,0 +1,26 @@
+.trClicked {
+	background: #cccccc !important;
+}
+
+#soldierTable>tbody>tr:first-child {
+	background: #cccccc;
+}
+#myTab > li.active{
+background: #fff;
+}
+
+.nav-tabs>li>a{
+margin-right:0;
+}
+.ibox-content{
+/* border-top:none; */
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+border-bottom:none;
+}
+.nav-tabs{
+border-bottom:none;
+}
+.bootstrap-table .table{
+border-bottom:none;
+}

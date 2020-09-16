@@ -1,0 +1,47 @@
+{
+	"nodes": [
+		{
+			"id": "156",
+			"label" : "国家OID注册中心",
+			"symbolSize": [
+				60,
+				60
+			],
+			"itemStyle": {
+				"color": "#ff4a79"
+			}
+		}, {
+			"id": "1",
+			"label" : "中国电子技术标准化研究院",
+			"symbolSize": [
+				40,
+				40
+			],
+			"itemStyle": {
+				"color": "#00a0e9"
+			}
+		},{
+			"id": "2",
+			"label" : "test",
+			"symbolSize": [
+				40,
+				40
+			],
+			"itemStyle": {
+				"color": "#00a0e9"
+			}
+		}
+	],
+	"edges": [
+		{
+			"target": "1",
+			"source": "156",
+			"label": ""
+		},{
+			"target": "2",
+			"source": "156",
+			"label": ""
+		}
+
+	]
+}

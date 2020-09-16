@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <!-- 引入elementUI样式 -->
+    <link rel="stylesheet" href="/homepage/font_color/iconfont.css">
+    <link rel="stylesheet" href="/homepage/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/homepage/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/homepage/style/elementUI.css">
+    <link rel="stylesheet" href="/homepage/style/valid.css">
+<style type="text/css">
+    *{
+    margin:0;
+    padding:0;
+    font-family:"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    }
+
+    h1,h2,h3,h4,h5,h6{
+        line-height: 1.7;
+    }
+
+    a{
+        color:#333;
+        text-decoration:none;
+        cursor: pointer;
+    }
+
+    a:hover{
+        color:#409EFF;
+        text-decoration:none;
+    }
+    br{
+        margin-bottom: 20px;
+    }
+
+    .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover{
+        color:#409EFF;
+    }
+
+    .font_base{
+        font-size:14px;
+        color: #909399;
+        line-height: 1.7;
+        color:#909399;
+    }
+    .font_larger{
+        font-size: 16px;
+        line-height: 1.7;
+        color:#303133;
+    }
+
+    .font_extra{
+        font-size: 18px;
+        line-height: 1.7;
+        color:#303133;
+    }
+
+    .font_title{
+        font-size: 22px;
+        line-height: 1.7;
+        color:#303133;
+    }
+
+    .font_title_large{
+        font-size: 30px;
+        line-height: 1.7;
+        color:#303133;
+    }
+
+    .font_medium{
+        font-size:16px;
+        line-height: 1.7;
+        color:#303133;
+    }
+
+    .el-menu--horizontal > .el-menu-item{
+        font-size: 14px;
+        float: right;
+    }
+    .el-menu--horizontal > .el-submenu{
+        float: right;
+    }
+    .el-submenu__title{
+        font-size: 16px;
+    }
+    .el-header {
+        color: #333;
+        text-align: center;
+        line-height: 60px;
+        padding:0 20px;
+    }
+    .el-footer{
+        margin-top: 20px;
+        background: #409EFF
+    }
+
+    .el-main {
+        background-color: #E9EEF3;
+        color: #333;
+        text-align: center;
+        line-height: 160px;
+        padding:0 40px;
+    }
+    ul{
+        list-style: none;
+    }
+    .btn-white {
+        color: inherit;
+        background: white;
+        border: 1px solid #e7eaec;
+    }
+    .sui-brand>img {
+        height: 48px;
+    }
+
+    button, input, select, textarea {
+        line-height: normal;
+    }
+
+    .innercontent{
+    width:100%;
+    }
+    .container-fluid, .container {
+        width: 84%;
+        margin: 0 auto;
+    }
+
+    /* 底部栏 */
+    .link {
+        background: #409EFF;
+        margin-top: 40px;
+    }
+
+    .link .container {
+        display: flex;
+        color: #fff;
+        flex-direction: row;
+        padding: 20px 0px;
+    }
+
+    .footer-top {
+        margin-right: 20px;
+    }
+
+    .footer-top dt {
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+
+    .footer-top dd {
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .footer-top dd a {
+        color: #fff;
+    }
+
+    .link .copyright .container {
+        display: flex;
+        color: #fff;
+        flex-direction: row;
+        padding: 20px 0px;
+    }
+
+    .footdivider {
+        height: 1px;
+        background: #fff;
+        margin-bottom: 10px;
+        width: 74%;
+        margin: 0 auto;
+    }
+
+    .el-breadcrumb{
+        font-size: 12px;
+        margin: 20px 30px 30px 30px;
+    }
+
+    span{
+    line-height: 20px;
+    letter-spacing:2px;
+    }
+
+    .activity-card-list{
+        height: 380px;
+    }
+    .modal-open .modal{
+        padding:0;
+    }
+    .modal-dialog{
+        margin:200px auto;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <!-- 翻页按钮 -->
+        <div class="btn-group" th:fragment="btn_pager">
+            <button type="button" class="btn btn-white" id="btn_first_page" title="首页"><i class="fa fa-angle-double-left"></i></button>
+            <button type="button" class="btn btn-white" id="btn_pre_page" title="上一页"><i class="fa fa-angle-left"></i> </button>
+            <div class="btn btn_write" th:text="${page}==null?1:${page}+' / '+${pageTotal}"></div>
+            <button type="button" class="btn btn-white" id="btn_next_page" title="下一页"><i class="fa fa-angle-right"></i> </button>
+            <button type="button" class="btn btn-white" id="btn_last_page" title="尾页"><i class="fa fa-angle-double-right"></i> </button>
+        </div>
+
+    </div>
+
+
+    <!-- Mainly scripts -->
+    <div th:fragment="scripts">
+    <!-- 引入 Jquery -->
+    <script src="/homepage/js/jquery-3.2.1.min.js"></script>
+	<!-- 引入 Vue -->
+	<script src="/homepage/js/vue.js"></script>
+    <!-- 引入 axios -->
+    <script src="/homepage/js/axios.js"></script>
+	<!-- 引入组件库 -->
+	<script src="/homepage/js/elementUI.js"></script>
+	<!-- bootstrap js -->
+    <script src="/homepage/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- bootstrap valid js -->
+    <script src="/homepage/js/valid.js"></script>
+    <!-- bootstrap valid demo js -->
+    <script src="/homepage/js/bootstrapValid.js"></script>
+    <script>
+	$(function(){
+
+        //翻页
+        var page = [[${page}==null?1:${page}]];
+        var pageTotal = [[${pageTotal}==null?1:${pageTotal}]];
+        var myUrl = location.pathname + location.search;
+        //去掉包含page的后面参数
+        if(myUrl.indexOf("?") > 0){
+            var end = myUrl.indexOf('&page=');
+            if(end > 0){
+                myUrl = myUrl.substr(0, end);
+                myUrl += "&page=";
+            }else if((end = myUrl.indexOf('?page=')) > 0){
+                myUrl = myUrl.substr(0, end);
+                myUrl += "?page=";
+            }else{
+                myUrl += "&page=";
+            }
+        }else{
+            myUrl += "?page=";
+        }
+
+        //console.info(myUrl + "| page=" + page);
+
+        if(page <= 1){
+            $("#btn_pre_page").attr("disabled","");
+        }
+        if(page >= pageTotal){
+            $("#btn_next_page").attr("disabled","");
+        }
+
+        $("#btn_first_page").click(function(){
+            //alert(myUrl);
+            location.href = myUrl + "1";
+        });
+        $("#btn_pre_page").click(function(){
+            //alert(myUrl);
+            location.href = myUrl + (page - 1);
+        });
+        $("#btn_next_page").click(function(){
+            //alert(myUrl);
+            location.href = myUrl + (page + 1);
+        });
+        $("#btn_last_page").click(function(){
+            //alert(myUrl);
+            location.href = myUrl + pageTotal;
+
+        });
+
+        var btnPage = $(".btn_write").text();
+        var btnPageList = btnPage.split("/");
+
+        //如果总页数小于等于1则隐藏分页
+        if(btnPageList[1] <= 1){
+            $(".btn-group").addClass("hidden");
+        }
+
+        $(".fa-search").click(function(){
+            $("#subBtn").click();
+        })
+
+    });
+
+	</script>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+﻿<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="front::head('es搜索')"></head>
+<style type="text/css">
+
+    .navbar-default {
+        background: #fff;
+    }
+
+    .search-box {
+        padding: 60px 0px 0px 0;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-right {
+        margin-top: 2px;
+        background: #fff;
+        padding: 40px 20px;
+    }
+
+    /* table right*/
+    .content-list-title {
+        font-weight: bolder;
+    }
+
+    .form-control {
+        width: 60%;
+        display: inline;
+        height: 40px;
+        border-radius: 4px 4px 4px 4px;
+        margin-right: 0;
+    }
+
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        border-color: #e7e7e7;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .btn-primary {
+        background: #409EFF;
+        border-radius: 4px;
+        padding: 6px 12px;
+        height: 40px;
+        width: 6%;
+        border: none;
+        margin-left: 4px;
+
+
+    }
+
+    .content-list li {
+        list-style: none;
+        margin: 10px 10px;
+    }
+
+    .search-tab {
+        height: 50px;
+        background: #f8f8f8;
+    }
+
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus,
+    .navbar-default .navbar-nav > .active > a:hover {
+        background: transparent;
+        border-bottom: 2px solid #409EFF;
+        color: #409EFF;
+    }
+
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+        padding-bottom: 15px;
+    }
+
+    .navbar-default {
+        background: transparent;
+        border: none;
+    }
+    .standTitle{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .standTitle span{
+        font-size: 18px;
+
+    }
+    .classRemarks {
+        font-size: 14px;
+        color: #909399;
+    }
+
+    .searchNum {
+        margin: 20px 0;
+    }
+
+    .hotPoint > li {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    .hotPoint > li:first-child {
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+
+    .search-background {
+        background-image: url('/homepage/images/banner1.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 360px;
+        padding: 60px;
+    }
+
+
+
+    .standDate{
+        background-image: url("/homepage/images/back.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        padding: 6px 0px 6px 32px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 240px;
+        color:#fff;
+    }
+
+    .standUnit{
+        background-image: url("/homepage/images/back.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        padding: 6px 0px 6px 50px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 190px;
+        color:#fff;
+    }
+    .el-select .el-input {
+        width: 130px;
+    }
+    .input-with-select .el-input-group__prepend {
+        background-color: #fff;
+    }
+    .el-input-group{
+        width:70%;
+    }
+    .el-badge{
+        margin-right: 36px;
+    }
+    tag{
+        color:red;
+    }
+    .classDetail{
+        display: inline;
+    }
+    .imgBox{
+        height: 100px;
+        background-size:contain;
+        background-repeat: no-repeat;
+    }
+</style>
+</head>
+<body>
+<div th:replace="front::scripts"></div>
+<div id="app">
+
+    <div class="row">
+
+        <form action="/sp/user/searchList" method="GET">
+            <div class="search-background">
+                <div style="text-align: center;">
+                    <p class="font_title_large" style="color: #fff;">搜索一下</p>
+                    <p class="font_base" style="color: #fff;">智能检索，轻松查询</p>
+                </div>
+                <div class="search-box">
+
+                    <el-input placeholder="请输入内容" v-model="input" class="input-with-select">
+                        <el-select v-model="select" slot="prepend" placeholder="请选择">
+                            <el-option label="全部" value="0" selected></el-option>
+                        </el-select>
+                        <el-button slot="append" icon="el-icon-search" v-on:click="onSubmit"></el-button>
+                    </el-input>
+
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <div class="searchNum">
+                <span class="classRemarks" style="font-weight:bold;" th:utext="${message}"></span>
+                <span class="classRemarks" th:if="${message == null}">为您找到相关结果约<span style="color:#f00;" th:utext="${recordTotal}"></span>个</span>
+
+            </div>
+            <!-- 其他资源 -->
+            <div th:each="list:${standardBaseList}">
+                <div class="contentBox row" style="margin-bottom: 20px;">
+
+                    <div class="textDetailBox col-md-8">
+                        <p class="classTitle" style="font-size: 18px;" th:utext="${list.title}"></p>
+                        <p class="classDetail" style="font-size: 16px;" th:utext="${list.content}"></p>
+                        <div th:if="${list.createTime!= null}" style="margin-top:10px">
+                            创建时间:
+                            <span style="margin-left:10px;" class="classRemarks" th:utext="${list.createTime}"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 翻页 -->
+            <div th:replace="front::btn_pager"></div>
+            <!-- 翻页结束 -->
+        </div>
+    </div>
+</div>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            activeIndex: '3',
+            input: '',
+            select: '1'
+        },
+        created: function(){
+          this.input = this.getUrlParam("keywords");
+          this.select = this.getUrlParam("keyvalues");
+          if(this.select == null){
+              this.input = "测试";
+              this.select = "全部";
+          }
+        },
+        methods: {
+            onSubmit:function () {
+                window.location.href = "/sp/user/searchList?keyvalues="+this.select+"&keywords="+this.input;
+            },
+            getUrlParam(key) {
+                // 获取参数
+                var url = window.location.search;
+                // 正则筛选地址栏
+                var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+                // 匹配目标参数
+                var result = url.substr(1).match(reg);
+                //返回参数值
+                return result ? decodeURIComponent(result[2]) : null;
+            }
+        }
+
+    })
+
+
+
+</script>
+</body>
+</html>
+
